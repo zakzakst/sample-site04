@@ -1,0 +1,66 @@
+{% extends 'layouts/has-aside.njk' %}
+{% set PAGE_DATA = {
+  TITLE: 'よくあるご質問',
+  DESCRIPTION: 'ページ概要',
+  NAV: 'faq'
+} %}
+
+{% set FAQ_ITEMS = [
+  {
+    question: '質問が入ります。',
+    answer: '回答が入ります。'
+  },
+  {
+    question: '質問が入ります。',
+    answer: '回答が入ります。'
+  },
+  {
+    question: '質問が入ります。',
+    answer: '回答が入ります。'
+  },
+  {
+    question: '質問が入ります。',
+    answer: '回答が入ります。'
+  },
+  {
+    question: '質問が入ります。',
+    answer: '回答が入ります。'
+  }
+] %}
+
+{% set TAB_ITEMS = [
+  {
+    name: '全て',
+    link: '#',
+    active: true
+  },
+  {
+    name: 'カテゴリー1',
+    link: '#',
+    active: false
+  },
+  {
+    name: 'カテゴリー2',
+    link: '#',
+    active: false
+  }
+] %}
+
+{# ▼▼▼ コンポーネント読み込み ▼▼▼ #}
+{% from 'components/hero.njk' import default as HERO %}
+{% from 'components/faq-list.njk' import default as FAQ_LIST %}
+{% from 'components/tabs.njk' import default as TABS %}
+{# ▲▲▲ コンポーネント読み込み ▲▲▲ #}
+
+{% block HERO_CONTENT %}
+  {{ HERO('よくあるご質問', 'FAQ') }}
+{% endblock %}
+
+{% block PAGE_CONTENT %}
+  {{ TABS(TAB_ITEMS) }}
+  {{ FAQ_LIST(FAQ_ITEMS) }}
+{% endblock %}
+
+{% block BOTTOM_CONTENT %}
+  {% include 'components/contact.njk' %}
+{% endblock %}

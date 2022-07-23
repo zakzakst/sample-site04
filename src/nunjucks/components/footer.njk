@@ -1,0 +1,86 @@
+{% set NAV_ITEMS = [
+  {
+    heading: '製品情報',
+    links: [
+      { link: '#', label: '製品情報トップ' },
+      { link: '#', label: '製品詳細' },
+      { link: '#', label: '導入のご相談' },
+      { link: '#', label: '導入事例' }
+    ]
+  },
+  {
+    heading: 'お知らせ',
+    links: [
+      { link: '#', label: 'ニュースリリーストップ' },
+      { link: '#', label: '月別アーカイブ' }
+    ]
+  },
+  {
+    heading: '会社情報',
+    links: [
+      { link: '#', label: '会社情報トップ' },
+      { link: '#', label: '企業概要' },
+      { link: '#', label: '社長挨拶' },
+      { link: '#', label: '事業案内' },
+      { link: '#', label: 'アクセスマップ' }
+    ]
+  }
+] %}
+
+{% set SNS_ITEMS = [
+  {
+    href: '#',
+    icon: 'fab fa-facebook-f'
+  },
+  {
+    href: '#',
+    icon: 'fab fa-instagram'
+  },
+  {
+    href: '#',
+    icon: 'fab fa-twitter'
+  }
+] %}
+
+<!-- ▼▼▼ フッター ▼▼▼ -->
+<footer class="footer">
+  <div class="columns">
+    <div class="column is-8">
+      <div class="columns">
+        {% for ITEM in NAV_ITEMS %}
+          <div class="column is-4">
+            <div class="columns">
+              <div class="column is-4">{{ ITEM.heading }}</div>
+              <div class="column is-8">
+                <ul>
+                  {% for LINK in ITEM.links %}
+                    <li><a href="{{ LINK.href }}">{{ LINK.label }}</a></li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="column is-4 has-text-right">
+      <div>お問い合わせ</div>
+      <ul>
+        <li>03-1234-5678</li>
+        <li>adobexd@mail.com</li>
+        <li>よくあるご質問</li>
+      </ul>
+      <p class="mt-4">
+        {% for ITEM in SNS_ITEMS %}
+          <a href="{{ ITEM.href }}" class="icon">
+            <i class="{{ ITEM.icon }}"></i>
+          </a>
+        {% endfor %}
+      </p>
+    </div>
+  </div>
+  <div class="content has-text-right">
+    <p>Copyright &copy; XXXXX 2022. All Rights Reserved.</p>
+  </div>
+</footer>
+<!-- ▲▲▲ フッター ▲▲▲ -->

@@ -1,0 +1,34 @@
+{% extends 'layouts/has-aside.njk' %}
+{% set PAGE_DATA = {
+  TITLE: 'お知らせ詳細',
+  DESCRIPTION: 'ページ概要',
+  NAV: 'news'
+} %}
+
+{% set PREV_ITEM = {
+  title: '前のタイトル',
+  link: '#'
+} %}
+
+{% set NEXT_ITEM = {
+  title: '次のタイトル',
+  link: '#'
+} %}
+
+{# ▼▼▼ コンポーネント読み込み ▼▼▼ #}
+{% from 'components/hero.njk' import default as HERO %}
+{% from 'components/news-pagination.njk' import default as NEWS_PAGINATION %}
+{# ▲▲▲ コンポーネント読み込み ▲▲▲ #}
+
+{% block HERO_CONTENT %}
+  {{ HERO('お知らせ詳細', 'NEWS') }}
+{% endblock %}
+
+{% block PAGE_CONTENT %}
+  <div>ページ内容</div>
+  {{ NEWS_PAGINATION(PREV_ITEM, NEXT_ITEM) }}
+{% endblock %}
+
+{% block BOTTOM_CONTENT %}
+  {% include 'components/contact.njk' %}
+{% endblock %}

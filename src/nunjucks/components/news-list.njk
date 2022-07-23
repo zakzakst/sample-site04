@@ -1,0 +1,7 @@
+{% macro default(ITEMS) %}
+  <ul>
+    {% for ITEM in ITEMS %}
+      <li><a href="{{ ITEM.link }}">{{ ITEM.date }}{{ ITEM.category }}{{ ITEM.title }}</a></li>
+    {% endfor %}
+  </ul>
+{% endmacro %}

@@ -1,0 +1,46 @@
+{% macro default(NAV_ITEMS, PAGE_DATA) %}
+<!-- ▼▼▼ ヘッダー（PC） ▼▼▼ -->
+<header>
+  <nav class="navbar">
+    <div class="navbar-brand">
+      {% if PAGE_DATA.NAV == 'top' %}
+        <h1 class="navbar-item">
+          <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+        </h1>
+      {% else %}
+        <a href="/" class="navbar-item">
+          <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+        </a>
+      {% endif %}
+
+      <a class="navbar-burger" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-end">
+        {% for ITEM in NAV_ITEMS %}
+          {# クラス名を判定 #}
+          {% if ITEM.id == PAGE_DATA.NAV %}
+            {% set CURRENT_CLASS = ' is-active' %}
+          {% else %}
+            {% set CURRENT_CLASS = '' %}
+          {% endif %}
+
+          <a href="{{ ITEM.link }}" class="navbar-item{{ CURRENT_CLASS }}">{{ ITEM.label }}</a>
+        {% endfor %}
+
+        <div class="navbar-item">
+          <a href="#" class="button is-primary">
+            <strong>お問い合わせ</strong>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<!-- ▲▲▲ ヘッダー（PC） ▲▲▲ -->
+{% endmacro %}

@@ -1,0 +1,10 @@
+{% macro default(ITEMS) %}
+  <ul>
+    {% for ITEM in ITEMS %}
+      <li>
+        <span>Q:{{ ITEM.question }}</span><br>
+        <span>A:{{ ITEM.answer }}</span>
+      </li>
+    {% endfor %}
+  </ul>
+{% endmacro %}
