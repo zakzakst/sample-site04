@@ -14,7 +14,8 @@
     "function-no-unknown": null,
     "no-duplicate-selectors": null,
     "no-empty-source": null,
-    "no-descending-specificity": null
+    "no-descending-specificity": null,
+    "scss/operator-no-unspaced": null
   },
   "ignoreFiles": [
     "src/sass/**/_*scss",
