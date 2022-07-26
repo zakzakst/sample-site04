@@ -24,20 +24,18 @@
   <div>
     {% block HERO_CONTENT %}
     {% endblock %}
-    <main class="container px-5 py-6">
-      <div class="columns">
-        <div class="column is-8">
+    <main class="container py-5">
+      <div class="row">
+        <div class="col-8">
           {% block PAGE_CONTENT %}
           {% endblock %}
         </div>
-        <div class="column is-4">
+        <div class="col-4">
           {% include '../components/aside.njk' %}
         </div>
       </div>
-      <div class="mt-6">
-        {% block BOTTOM_CONTENT %}
-        {% endblock %}
-      </div>
+      {% block BOTTOM_CONTENT %}
+      {% endblock %}
     </main>
   </div>
   <!-- ▲▲▲ ページ内容 ▲▲▲ -->
