@@ -30,57 +30,57 @@
 {% set SNS_ITEMS = [
   {
     href: '#',
-    icon: 'fab fa-facebook-f'
+    icon: 'bi-facebook'
   },
   {
     href: '#',
-    icon: 'fab fa-instagram'
+    icon: 'bi-instagram'
   },
   {
     href: '#',
-    icon: 'fab fa-twitter'
+    icon: 'bi-twitter'
   }
 ] %}
 
 <!-- ▼▼▼ フッター ▼▼▼ -->
-<footer class="footer">
-  <div class="columns">
-    <div class="column is-8">
-      <div class="columns">
-        {% for ITEM in NAV_ITEMS %}
-          <div class="column is-4">
-            <div class="columns">
-              <div class="column is-4">{{ ITEM.heading }}</div>
-              <div class="column is-8">
-                <ul>
-                  {% for LINK in ITEM.links %}
-                    <li><a href="{{ LINK.href }}">{{ LINK.label }}</a></li>
-                  {% endfor %}
-                </ul>
+<footer class="py-4 text-light bg-dark">
+  <div class="container">
+    <div class="row">
+      <div class="col-8">
+        <div class="row">
+          {% for ITEM in NAV_ITEMS %}
+            <div class="col-4">
+              <div class="row g-2">
+                <div class="col-4">{{ ITEM.heading }}</div>
+                <div class="col-8">
+                  <ul class="list-unstyled">
+                    {% for LINK in ITEM.links %}
+                      <li><a href="{{ LINK.href }}" class="link-secondary text-decoration-none">{{ LINK.label }}</a></li>
+                    {% endfor %}
+                  </ul>
+                </div>
               </div>
             </div>
-          </div>
-        {% endfor %}
+          {% endfor %}
+        </div>
+      </div>
+      <div class="col-4 text-end">
+        <div>お問い合わせ</div>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-secondary text-decoration-none">03-1234-5678</a></li>
+          <li><a href="#" class="text-secondary text-decoration-none">adobexd@mail.com</a></li>
+          <li><a href="#" class="text-secondary text-decoration-none">よくあるご質問</a></li>
+        </ul>
+        <p class="mt-2">
+          {% for ITEM in SNS_ITEMS %}
+            <a href="{{ ITEM.href }}" class="d-inline-block ms-2 text-white text-decoration-none">
+              <i class="{{ ITEM.icon }}"></i>
+            </a>
+          {% endfor %}
+        </p>
       </div>
     </div>
-    <div class="column is-4 has-text-right">
-      <div>お問い合わせ</div>
-      <ul>
-        <li>03-1234-5678</li>
-        <li>adobexd@mail.com</li>
-        <li>よくあるご質問</li>
-      </ul>
-      <p class="mt-4">
-        {% for ITEM in SNS_ITEMS %}
-          <a href="{{ ITEM.href }}" class="icon">
-            <i class="{{ ITEM.icon }}"></i>
-          </a>
-        {% endfor %}
-      </p>
-    </div>
-  </div>
-  <div class="content has-text-right">
-    <p>Copyright &copy; XXXXX 2022. All Rights Reserved.</p>
+    <p class="mb-0 text-end">Copyright &copy; XXXXX 2022. All Rights Reserved.</p>
   </div>
 </footer>
 <!-- ▲▲▲ フッター ▲▲▲ -->
