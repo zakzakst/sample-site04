@@ -1,10 +1,16 @@
 {% macro default(ITEMS) %}
-  <ul>
+  <div class="accordion" id="faq-list">
     {% for ITEM in ITEMS %}
-      <li>
-        <span>Q:{{ ITEM.question }}</span><br>
-        <span>A:{{ ITEM.answer }}</span>
-      </li>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-{{ loop.index }}" aria-expanded="false">{{ ITEM.question }}</button>
+        </h2>
+        <div id="faq-{{ loop.index }}" class="accordion-collapse collapse" data-bs-parent="#faq-list">
+          <div class="accordion-body">{{ ITEM.answer }}</div>
+        </div>
+      </div>
     {% endfor %}
+  </div>
+  <ul>
   </ul>
 {% endmacro %}
