@@ -1,20 +1,20 @@
 {% macro default(ITEMS) %}
-  {% for ITEM in ITEMS %}
-    <article class="media">
-      <figure class="media-left">
-        <p class="image is-128x128">
-          <img class="is-rounded" src="{{ ITEM.thumb }}">
-        </p>
-      </figure>
-      <div class="media-content">
-        <div class="content">
-          <h2>{{ ITEM.name }}</h2>
-          <p>{{ ITEM.description }}</p>
-          <a href="{{ ITEM.link }}">詳細を見る</a>
+  <div class="row gy-2">
+    {% for ITEM in ITEMS %}
+      <div class="col-12">
+        <div class="row">
+          <div class="col-3">
+            <img class="img-fluid img-thumbnail" src="{{ ITEM.thumb }}">
+          </div>
+          <div class="col-9">
+            <h2>{{ ITEM.name }}</h2>
+            <p>{{ ITEM.description }}</p>
+            <a href="{{ ITEM.link }}">詳細を見る</a>
+          </div>
         </div>
       </div>
-    </article>
-  {% endfor %}
+    {% endfor %}
+  </div>
 {% endmacro %}
 
 {% macro small(ITEMS) %}
