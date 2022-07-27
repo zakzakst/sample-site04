@@ -18,15 +18,15 @@
 {% endmacro %}
 
 {% macro small(ITEMS) %}
-  <div class="columns is-flex-wrap-wrap">
+  <div class="row g-3">
     {% for ITEM in ITEMS %}
-      <div class="column is-4">
-        <p class="image is-128x128">
-          <img class="is-rounded" src="{{ ITEM.thumb }}">
-        </p>
-        <div class="content">
-          <h2>{{ ITEM.name }}</h2>
-          <a href="{{ ITEM.link }}">詳細を見る</a>
+      <div class="col-3">
+        <div class="card">
+          <img class="card-img-top" src="{{ ITEM.thumb }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ ITEM.name }}</h5>
+            <a href="{{ ITEM.link }}" class="btn btn-primary">詳細を見る</a>
+          </div>
         </div>
       </div>
     {% endfor %}
