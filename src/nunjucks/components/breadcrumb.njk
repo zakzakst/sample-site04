@@ -1,0 +1,24 @@
+{% macro default(ITEMS) %}
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      {% for ITEM in ITEMS %}
+        {% if ITEM.current %}
+          <li class="breadcrumb-item active" aria-current="page">{{ ITEM.name }}</li>
+        {% else %}
+          <li class="breadcrumb-item"><a href="{{ ITEM.link }}">{{ ITEM.name }}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ol>
+  </nav>
+  {# <nav class="breadcrumb" aria-label="breadcrumbs">
+    <ul>
+      {% for ITEM in ITEMS %}
+        {% if ITEM.current %}
+          <li class="is-active"><a href="{{ ITEM.link }}">{{ ITEM.name }}</a></li>
+        {% else %}
+          <li><a href="{{ ITEM.link }}">{{ ITEM.name }}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </nav> #}
+{% endmacro %}

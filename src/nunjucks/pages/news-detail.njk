@@ -2,7 +2,22 @@
 {% set PAGE_DATA = {
   TITLE: 'お知らせ詳細',
   DESCRIPTION: 'ページ概要',
-  NAV: 'news'
+  NAV: 'news',
+  BREADCRUMB_ITEMS: [
+    {
+      link: '#',
+      name: 'HOME'
+    },
+    {
+      link: '#',
+      name: 'お知らせ'
+    },
+    {
+      link: '#',
+      name: 'お知らせ詳細',
+      current: true
+    }
+  ]
 } %}
 
 {% set PREV_ITEM = {
@@ -17,6 +32,7 @@
 
 {# ▼▼▼ コンポーネント読み込み ▼▼▼ #}
 {% from 'components/hero.njk' import default as HERO %}
+{% from 'components/breadcrumb.njk' import default as BREADCRUMB %}
 {% from 'components/news-pagination.njk' import default as NEWS_PAGINATION %}
 {# ▲▲▲ コンポーネント読み込み ▲▲▲ #}
 
@@ -25,6 +41,7 @@
 {% endblock %}
 
 {% block PAGE_CONTENT %}
+  {{ BREADCRUMB(PAGE_DATA.BREADCRUMB_ITEMS) }}
   <div>ページ内容</div>
   {{ NEWS_PAGINATION(PREV_ITEM, NEXT_ITEM) }}
 {% endblock %}
