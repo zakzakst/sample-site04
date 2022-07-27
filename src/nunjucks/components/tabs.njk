@@ -1,13 +1,13 @@
 {% macro default(ITEMS) %}
-  <div class="tabs">
-    <ul>
-      {% for ITEM in ITEMS %}
+  <ul class="nav nav-tabs">
+    {% for ITEM in ITEMS %}
+      <li class="nav-item">
         {% if ITEM.active %}
-          <li class="is-active"><a>{{ ITEM.name }}</a></li>
+          <a href="{{ ITEM.link }}" class="nav-link active">{{ ITEM.name }}</a>
         {% else %}
-          <li><a>{{ ITEM.name }}</a></li>
+          <a href="{{ ITEM.link }}" class="nav-link">{{ ITEM.name }}</a>
         {% endif %}
-      {% endfor %}
-    </ul>
-  </div>
+      </li>
+    {% endfor %}
+  </ul>
 {% endmacro %}
