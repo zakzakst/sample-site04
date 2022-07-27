@@ -29,22 +29,20 @@
 
 <!-- ▼▼▼ サイドバー ▼▼▼ -->
 <aside>
-  <div class="control has-icons-right">
-    <input class="input" type="text" placeholder="キーワードを入力">
-    <span class="icon is-small is-right">
-      <i class="fas fa-search"></i>
-    </span>
+  <div class="input-group">
+    <input type="text" class="form-control" placeholder="キーワードを入力">
+    <button class="btn btn-secondary" type="button">検索</button>
   </div>
 
-  <div class="mt-4">
-    {% for ITEM in ASIDE_ITEMS %}
-      <nav class="panel">
-        <p class="panel-heading">{{ ITEM.heading }}</p>
+  {% for ITEM in ASIDE_ITEMS %}
+    <div class="mt-4">
+      <h4>{{ ITEM.heading }}</h4>
+      <div class="list-group">
         {% for LINK in ITEM.links %}
-          <a href="{{ LINK.link }}" class="panel-block">{{ LINK.label }}</a>
+          <a href="{{ LINK.link }}" class="list-group-item list-group-item-action">{{ LINK.label }}</a>
         {% endfor %}
-      </nav>
-    {% endfor %}
-  </div>
+      </div>
+    </div>
+  {% endfor %}
 </aside>
 <!-- ▲▲▲ サイドバー ▲▲▲ -->
